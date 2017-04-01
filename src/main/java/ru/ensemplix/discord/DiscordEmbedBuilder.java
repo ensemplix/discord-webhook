@@ -3,6 +3,10 @@ package ru.ensemplix.discord;
 import ru.ensemplix.discord.DiscordEmbed.*;
 
 import java.awt.*;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +16,7 @@ public class DiscordEmbedBuilder {
     private String type = "rich";
     private String description;
     private String url;
+    private String timestamp;
     private int color;
     private Footer footer;
     private Media image;
@@ -45,6 +50,12 @@ public class DiscordEmbedBuilder {
 
     public DiscordEmbedBuilder setColor(Color color) {
         this.color = 65536 * color.getRed() + 256 * color.getGreen() + color.getBlue();
+        return this;
+    }
+
+    public DiscordEmbedBuilder setTimestamp(long millis) {
+        LocalDateTime ldt = LocalDateTime.ofInstant(Instant.ofEpochMilli(millis), ZoneId.of("Z"));
+        this.timestamp = ldt.atZone(ZoneId.of("Z")).format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
         return this;
     }
 
@@ -108,7 +119,7 @@ public class DiscordEmbedBuilder {
     }
 
     public DiscordEmbed build() {
-        return new DiscordEmbed(title, type, description, url, color, footer, image, thumbnail, video, provider, author, fields);
+        return new DiscordEmbed(title, type, description, url, color, timestamp, footer, image, thumbnail, video, provider, author, fields);
     }
 
     public static DiscordEmbedBuilder newBuilder() {

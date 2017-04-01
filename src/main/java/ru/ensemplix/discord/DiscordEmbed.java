@@ -11,6 +11,7 @@ public class DiscordEmbed {
     private final String description;
     private final String url;
     private final int color;
+    private final String timestamp;
     private final Footer footer;
     private final Media image;
     private final Media thumbnail;
@@ -19,13 +20,14 @@ public class DiscordEmbed {
     private final Author author;
     private final List<Field> fields;
 
-    DiscordEmbed(String title, String type, String description, String url, int color, Footer footer, Media image,
-                 Media thumbnail, Media video, Provider provider, Author author, List<Field> fields) {
+    DiscordEmbed(String title, String type, String description, String url, int color, String timestamp, Footer footer,
+                 Media image, Media thumbnail, Media video, Provider provider, Author author, List<Field> fields) {
         this.title = title;
         this.type = type;
         this.description = description;
         this.url = url;
         this.color = color;
+        this.timestamp = timestamp;
         this.footer = footer;
         this.image = image;
         this.thumbnail = thumbnail;
@@ -53,6 +55,10 @@ public class DiscordEmbed {
 
     public int getColor() {
         return color;
+    }
+
+    public String getTimestamp() {
+        return timestamp;
     }
 
     public Footer getFooter() {
