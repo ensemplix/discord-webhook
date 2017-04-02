@@ -1,4 +1,4 @@
-package ru.ensemplix.discord;
+package ru.ensemplix.discord.api;
 
 import com.github.kevinsawicki.http.HttpRequest;
 import com.google.gson.Gson;

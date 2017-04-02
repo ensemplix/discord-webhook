@@ -1,6 +1,4 @@
-package ru.ensemplix.discord;
-
-import ru.ensemplix.discord.DiscordEmbed.*;
+package ru.ensemplix.discord.api;
 
 import java.awt.*;
 import java.time.Instant;
@@ -18,13 +16,13 @@ public class DiscordEmbedBuilder {
     private String url;
     private String timestamp;
     private int color;
-    private Footer footer;
-    private Media image;
-    private Media thumbnail;
-    private Media video;
-    private Provider provider;
-    private Author author;
-    private List<Field> fields = new ArrayList<>();
+    private DiscordEmbed.Footer footer;
+    private DiscordEmbed.Media image;
+    private DiscordEmbed.Media thumbnail;
+    private DiscordEmbed.Media video;
+    private DiscordEmbed.Provider provider;
+    private DiscordEmbed.Author author;
+    private List<DiscordEmbed.Field> fields = new ArrayList<>();
 
     private DiscordEmbedBuilder() {}
 
@@ -68,27 +66,27 @@ public class DiscordEmbedBuilder {
     }
 
     public DiscordEmbedBuilder setFooter(String text, String iconUrl, String proxyIconUrl) {
-        this.footer = new Footer(text, iconUrl, proxyIconUrl);
+        this.footer = new DiscordEmbed.Footer(text, iconUrl, proxyIconUrl);
         return this;
     }
 
     public DiscordEmbedBuilder setImage(String url, int height, int width) {
-        this.image = new Media(url, height, width);
+        this.image = new DiscordEmbed.Media(url, height, width);
         return this;
     }
 
     public DiscordEmbedBuilder setThumbnail(String url, int height, int width) {
-        this.thumbnail = new Media(url, height, width);
+        this.thumbnail = new DiscordEmbed.Media(url, height, width);
         return this;
     }
 
     public DiscordEmbedBuilder setVideo(String url, int height, int width) {
-        this.video = new Media(url, height, width);
+        this.video = new DiscordEmbed.Media(url, height, width);
         return this;
     }
 
     public DiscordEmbedBuilder setProvider(String name, String url) {
-        this.provider = new Provider(name, url);
+        this.provider = new DiscordEmbed.Provider(name, url);
         return this;
     }
 
@@ -105,7 +103,7 @@ public class DiscordEmbedBuilder {
     }
 
     public DiscordEmbedBuilder setAuthor(String name, String url, String iconUrl, String proxyIconUrl) {
-        this.author = new Author(name, url, iconUrl, proxyIconUrl);
+        this.author = new DiscordEmbed.Author(name, url, iconUrl, proxyIconUrl);
         return this;
     }
 
@@ -114,7 +112,7 @@ public class DiscordEmbedBuilder {
     }
 
     public DiscordEmbedBuilder field(String name, String value, boolean inline) {
-        this.fields.add(new Field(name, value, inline));
+        this.fields.add(new DiscordEmbed.Field(name, value, inline));
         return this;
     }
 

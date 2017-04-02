@@ -2,8 +2,8 @@ apply plugin: 'maven-publish'
 apply plugin: 'java'
 apply plugin: 'idea'
 
-group = 'ru.ensemplix.discord'
-version = '1.0-SNAPSHOT'
+group = 'ru.ensemplix.discord.api'
+version = '1.0'
 
 repositories {
     mavenCentral()
